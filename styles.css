@@ -70,37 +70,22 @@ body {
     font-family: var(--font);
 }
 
-#top {
+header {
     background-color: var(--black);
 }
 
-header {
-    box-shadow: 0px 5px 25px var(--blue);
+#top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding: 50px 0px 50px 75px;
 }
 
 h1 {
     color: var(--blue);
-    font-size: 2.5em;
+    font-size: 2.15em;
     font-weight: bold;
-    padding: 50px 0px 50px 75px;
-}
-
-/* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
-#hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
-    height: 80vh;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    padding: 1rem;
-    overflow: hidden;
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
@@ -111,8 +96,8 @@ h1::before {
     padding-left: 10px;
     top: 45px;
     left: -.5px;
-    width: 3.75rem;
-    height: 3.75rem;
+    width: 1.75em;
+    height: 1.75em;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
     animation: logo 1.5s linear 0s infinite alternate;
 }
@@ -120,6 +105,260 @@ h1::before {
 @keyframes logo {
     0% {top: 45px;}
     100% {top: 51px;}
+}
+
+nav ul {
+    list-style: none;
+    overflow: hidden;
+    text-align: center;
+    max-height: 0;
+}
+
+nav h2 {
+    visibility: hidden;
+    height: 1px;
+}
+
+nav li a {
+    display: block;
+    font-size: 1.5em;
+    padding: 1em 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--blue);
+    transition: all .3s ease-in;
+}
+
+nav a:hover, nav input:hover {
+    background-color: var(--blue);
+    color: var(--black);
+}
+
+nav label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 1.5em;
+    user-select: none;
+}
+
+label span {
+    background-color: white;
+    display: block;
+    height: .25em;
+    position: relative;
+    transition: all .3s ease-out;
+    width: 2em;
+}
+
+label span:before, label span:after {
+    background: white;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+label span:before {
+    top: .75em;
+}
+
+label span:after {
+    top: -.75em;
+}
+
+input {
+  display:none;
+}
+
+input:checked ~ ul {
+    background-color: var(--black);
+    position: absolute;
+    max-height: 500px;
+}
+
+/* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
+    height: 80vh;
+    text-align: center;
+    padding: 1rem;
+    overflow: hidden;
+    box-shadow: inset 0px 7px 3px -3px var(--blue);
+    color: var(--white);
+}
+
+#hero div {
+    width: 80vw;
+    margin: auto;
+    backdrop-filter: blur(30px);
+}
+
+#hero h2 {
+    margin-top: 50rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#hero p {
+    margin: 2rem auto;
+}
+
+#hero a {
+    display: inline-block;
+    width: max-content;
+    background-color: var(--blue);
+    padding: 20px;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+#about {
+    width: 90vw;
+    margin: auto;
+    text-align: left;
+}
+
+#about h2 {
+    margin-top: 32px;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 20px 10px;
+}
+
+#about p {
+    line-height: 1.5rem;
+}
+
+#services {
+    margin-top: 36px;
+    width: 90vw;
+    text-align: left;
+}
+
+#services h2 {
+    margin-top: 32px;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 20px 10px;
+}
+
+#card-catalog {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "consulting" "investment" "mergers" "transformation" "advisory" "innovation";
+    column-gap: 15px;
+}
+
+.service_card {
+    background-color: var(--blue);
+    padding: 16px;
+    border-radius: 15px;
+    color: var(--white);
+}
+
+.service_card h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 10px 10px;
+}
+
+.service_card p {
+    line-height: 1.5rem;
+}
+
+#consulting {
+    margin-top: 15px;
+    grid-area: consulting;
+}
+
+#investment {
+    margin-top: 15px;
+    grid-area: investment;
+}
+
+#mergers {
+    margin-top: 15px;
+    grid-area: mergers;
+}
+
+#transformation {
+    margin-top: 15px;
+    grid-area: transformation;
+}
+
+#advisory {
+    margin-top: 15px;
+    grid-area: advisory;
+}
+
+#innovation {
+    margin-top: 15px;
+    grid-area: innovation;
+}
+
+#proven {
+    background-color: var(--blue);
+    margin-top: 36px;
+}
+
+#proven > div {
+    width: 90vw;
+    text-align: left;
+    color: var(--white);
+}
+
+#proven h2 {
+    margin-top: 32px;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 20px 30px;
+}
+
+#proven P {
+    line-height: 1.5rem;
+    padding-left: 20px;
+}
+
+#chart-catalog {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "profits" "growth";
+    column-gap: 15px;
+    width: 90vw;
+}
+
+#chart-catalog h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 20px 30px;
+}
+
+#profits {
+    margin-top: 15px;
+    grid-area: profits;
+}
+
+table {
+    background-color: var(--black);
+    width: 100%;
+}
+
+#growth {
+    margin-top: 15px;
+    grid-area: growth;
 }
 
 /* THIS ONE IS DONE FOR YOU */
@@ -159,12 +398,8 @@ h1::before {
 }
 
 @keyframes stepUp {
-    0% {
-        height: 0;
-    }
-    100% {
-        height: var(--height);
-    }
+    0% {height: 0;}
+    100% {height: var(--height);}
 }
 
 /* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
@@ -175,22 +410,62 @@ h1::before {
 
 /* MEDIA QUERIES (MEDIUM) */ 
 @media screen and (min-width: 800px) {
-    #results {
+
+    #top {
+        padding: 30px 50px 50px 75px;
+        max-width: 1200px;
+    }
+
+    nav ul {
+        overflow:visible;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 50px;
+        margin-left: 2em;
+    }
+
+    nav li a {
+        display:inline-block;
+        padding: 1em;
+    }
+
+      label span, input {
+        display:none;
+    }
+
+    #card-catalog {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "consulting investment" "mergers transformation" "advisory innovation";
+    }
+
+    #chart-catalog {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "profits growth";
+    }
+
+    #profits{
+        width: 50%;
+    }
+    #growth {
+        width: 50%;
+    }
+
+   /* #results {
         grid-template-columns: 1fr 1fr;
     }
     .results-container {
         flex-direction: row;
         justify-content: space-between;
     }
-    .results-table {
-        width: 50%;
-    }
-    .bar-chart {
-        width: 50%;
-    }
+*/
 }
 
 /* MEDIA QUERIES (LARGE) */
 @media screen and (min-width: 1024px) {
-
+    #card-catalog {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "consulting investment mergers" "transformation advisory innovation";
+    }
 }
